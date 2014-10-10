@@ -1,0 +1,136 @@
+<div class="well">
+
+	<div class="container">
+		<div id="taskHeader" class="row">
+			<div class="col-sm-2 col-xs-4">
+				<div class="panel">
+					<table class="table" >
+						<tr>
+							<td>Date</td><td><span current-time="MM/dd"></span></td>
+						</tr>
+						<tr>
+							<td>Est.</td><td></td>
+						</tr>
+						<tr>
+							<td>Rec.</td><td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+<div class="col-sm-8 col-xs-4">
+
+</div>
+			<div class="col-sm-2 col-xs-4">
+				<table class="table">
+					<tr>
+						<td>Time</td><td><span current-time="h:mm"></span></td>
+					</tr>
+					<tr>
+						<td>Est.</td><td></td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="well">
+		<div class="row">
+			<form role="form" id="newTaskForm" ng-submit="addTask()" >
+				<div class="nest-group col-sm-3">
+					<div class="form-group col-sm-4 col-xs-2">
+						<div class="dropdown">
+							<a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#" href="#/taskmanager"><input id="dateField" placeholder="Date" type="text" class="form-control input-sm" value="{{newTask.datetime|date:'MM-dd'}}" tabindex="-1">
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<datetimepicker data-ng-model="newTask.datetime" data-datetimepicker-config="{ dropdownSelector: '#dropdown1',minView:'day' }"></datetimepicker>
+						</ul>
+					</div>
+				</div>
+				<div class="form-group col-sm-3 col-xs-2">
+					<label class="sr-only" for="divisionField">Division</label>
+					<select ng-model="newTask.division" id="divisionField" class="form-control input-sm"  ng-options="divOption for divOption in divOptions">
+					</select>
+					<!-- 	<div class="dropdown">
+							<a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#/taskmanager"><input id="timeField" placeholder="Time" type="text" class="form-control input-sm" value="{{newTask.datetime|date:'HH:mm'}}">
+					</a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<datetimepicker data-ng-model="newTask.datetime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2', startView:'hour',minView:'minute' }"></datetimepicker>
+					</ul>
+				</div> -->
+			</div>
+			<div class="form-group col-sm-5 col-sm-offset-0 col-xs-2 col-xs-offset-1">
+				<label class="sr-only" for="numField">#</label>
+				<input ng-model="newTask.number" type="number" value="0" min="0" step="10" class="form-control input-sm" id="numField" placeholder="#">
+			</div>
+		</div>
+		<div class="nest-group col-sm-9">
+			<div class="form-group col-sm-2 col-sm-offset-0 col-xs-offset-1 col-xs-3">
+				<label class="sr-only" for="projectField">Project</label>
+				<select ng-model="newTask.project" id="projectField" class="form-control input-sm"  ng-options="type.name for type in taskTypes">
+				</select>
+			</div>
+			<div class="form-group col-sm-7 col-xs-8">
+				<label class="sr-only" for="taskField">Task</label>
+				<input ng-model="newTask.taskTitle" type="text" class="form-control input-sm" id="taskField" placeholder="Task" />
+			</div>
+			<div class="form-group col-sm-2 col-xs-2">
+				<label class="sr-only" for="costField">Cost</label>
+				<input ng-model="newTask.cost" type="number" min="0" step="0.25"class="form-control input-sm" id="costField" placeholder="Cost">
+			</div>
+			<div class="form-group col-sm-1 col-sm-offset-0 col-xs-1 col-xs-offset-1">
+				<button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+<div class="row">
+<div id="taskList">
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">タスクリスト</div>
+		<!-- Table -->
+		<table class="table" ng-model="tasks">
+			<tr>
+				<thead>
+					<tr>
+						<th class="checkcell">☑</th>
+						<th class="dateCell"><a href="" ng-click="order('datetime',false)" tabindex="-1">Date</a></th>
+						<th class="weekCell"></th>
+						<th class="divCell">Div</th>
+						<th class="numCell"><a href="" ng-click="order('number',false)" tabindex="-1">#</th>
+						<th class="typeCell"><a href="" ng-click="order('project.name',false)" tabindex="-1">Type</a></th>
+						<th class="taskCell">Task</th>
+						<th class="costCell">Cost</th>
+						<th class="costCell">Record</th>
+						<th class="startCell">Start</th>
+						<th class="endCell">End</th>
+						<th class="btnCell"></th>
+					</tr>
+				</thead>
+			</tr>
+			<tr ng-repeat="task in tasks" ng-class="rowClass(task)">
+				<td><input type="checkbox" ng-model="task.checked" tabindex="-1"></td>
+				<td>{{task.datetime|date:'MM/dd'}}</td>
+				<td>{{task.datetime|date:'EEE'}}</td>
+				<td>{{task.division}}</td>
+				<!-- <td>{{task.datetime|date:'hh:mm a'}}</td> -->
+				<td>{{task.number}}</td>
+				<td>{{task.project.name}}</td>
+				<td>{{task.taskTitle}}</td>
+				<td>{{task.cost}}</td>
+				<td>{{task.record}}</td>
+				<td>{{task.startTime}}</td>
+				<td>{{task.endTime}}</td>
+				<td>
+					<button class="btn btn-xxs btn-default" ng-click="" tabindex="-1"><span class="glyphicon glyphicon-edit"></span></button>
+					<button class="btn btn-xxs btn-danger" ng-click="removeTask($index)" tabindex="-1"><span class="glyphicon glyphicon-trash"></span></button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,222 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+// endbower
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+
+// TaskManager form css
+
+// .form-inline .form-group {
+//   input {
+//     width:140px;
+//   }
+//   select {
+//     width:140px;
+//   }
+// }
+
+// #dateField{
+//   width: 60px;
+// }
+// #timeField{
+// width: 60px;
+// }
+// #numField{
+//   width: 50px;
+// }
+// #projectField{
+//   width: 80px;
+// }
+// #taskField{
+//   width: 270px;
+// }
+// #costField{
+//   width: 60px;
+// }
+
+
+
+#newTaskForm {
+  .form-group {
+  padding: 0;
+  margin-bottom: 0;
+}
+  .nest-group{
+    padding-left:5px;
+    padding-right: 0;
+  }
+
+  input.ng-invalid.ng-dirty {
+    border-width: 2px;
+    border-color: #CE747D;
+  }
+
+  input.ng-valid.ng-dirty {
+    border-width: 2px;
+    border-color: #5CB5CE;
+  }
+
+}
+#taskHeader{
+  td{
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 0 5px;
+  }
+}
+
+#taskList{
+
+  td{
+    font-size: 10px;
+    line-height: 1.5;
+    padding: 0 5px;
+  }
+  th{
+
+  font-size: 12px;
+    line-height: 1.5;
+    padding: 0 5px;
+
+  &.dateCell{width: 5%;}
+  &.weekCell{width: 5%;}
+  // &.timeCell{width: 12%;}
+  &.divCell{width:5%}
+  &.numCell{width: 5%;}
+  &.typeCell{width: 10%;}
+  &.taskCell{width: 38%;}
+  &.recordCell{width: 6%;}
+  &.costCell{width: 6%;}
+  &.startCell{width: 6%;}
+  &.endCell{width: 6%;}
+  &.btnCell{width: 8%;}
+
+}
+}
+
+.routine{
+      background-color: #C0E734;
+    }
+     .task{
+     background-color: #FFD352;
+    }
+    .break{
+     background-color: #FFD352;
+     color: white;
+    }
+    .border{
+     background-color: #333333;
+     color: white;
+    }
+    .break{
+     background-color: #50CEBB;
+    }
+    .preparation{
+     background-color: #4CCECD;
+    }
+    .urgent{
+     background-color: #CE4B3B;
+     color: white;
+    }
+    .skillUp{
+     background-color: #B6CE36;
+    }
+    .done{
+      background-color: #eee;
+      color: #ccc;
+    }
+
+.btn-xxs, .btn-group-xxs > .btn {
+  padding: 2px 3px;
+  margin: 1px;
+font-size: 0.9em;
+line-height: 1.0;
+border-radius: 3px;}
